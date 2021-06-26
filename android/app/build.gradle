@@ -49,6 +49,16 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    aaptOptions {
+        cruncherEnabled false
+    }
+    dexOptions {
+        preDexLibraries true
+        maxProcessCount 8
+        // Instead of setting the heap size for the DEX process, increase Gradle's
+        // heap size to enable dex-in-process. To learm more, read the next section.
+        // javaMaxHeapSize "2048m"
+    }
 }
 
 flutter {
